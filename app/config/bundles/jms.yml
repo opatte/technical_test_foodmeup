@@ -1,0 +1,6 @@
+# app/config/bundles/jms.yml
+
+# JMS\SerializerBundle\JMSSerializerBundle configuration
+jms_serializer:
+    metadata:
+        auto_detection: true

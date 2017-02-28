@@ -1,0 +1,50 @@
+# app/config/bundles/fos.yml
+
+# FOS\RestBundle\FOSRestBundle configuration
+fos_rest:
+    body_listener:
+        array_normalizer: fos_rest.normalizer.camel_keys
+
+    format_listener:
+        rules:
+            -
+                priorities: ['json']
+                fallback_format: json
+
+    allowed_methods_listener: true
+
+    view:
+        exception_wrapper_handler: null
+
+        view_response_listener: 'force'
+
+        formats:
+            xml: false
+            json : true
+
+        templating_formats:
+            html: true
+
+        force_redirects:
+            html: true
+
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+
+    routing_loader:
+        default_format:   json
+
+    exception:
+        enabled: true
+
+        codes:
+            'Symfony\Component\Security\Core\Exception\AuthenticationException':   401
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException':       404
+            'Symfony\Component\OptionsResolver\Exception\InvalidOptionsException': 400
+            'Symfony\Component\OptionsResolver\Exception\MissingOptionsException': 400
+
+        messages:
+            'Symfony\Component\HttpKernel\Exception\HttpException': true
+
+    serializer:
+        serialize_null: true

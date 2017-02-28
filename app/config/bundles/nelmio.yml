@@ -1,0 +1,10 @@
+# app/config/bundles/nelmio.yml
+
+# Nelmio\CorsBundle\NelmioCorsBundle configuration
+nelmio_cors:
+    paths:
+        '^/':
+            allow_origin: '*'
+            allow_headers: ['*']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE','OPTIONS']
+            max_age: 3600
