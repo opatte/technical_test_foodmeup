@@ -1,0 +1,26 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Model.Index.yml
+
+Foodmeup\NutritionBundle\Model\Index:
+
+    relations:
+        -
+            rel:            'self'
+            href:
+                route:      'foodmeup.nutrition.index'
+                absolute:   true
+
+        -
+            rel:            'families'
+            href:
+                route:      'foodmeup.nutrition.family.list_all_families'
+                absolute:   true
+            attributes:
+                title:      "API - Families"
+
+        -
+            rel:            'ingredients'
+            href:
+                route:      'foodmeup.nutrition.ingredient.list_all_ingredients'
+                absolute:   true
+            attributes:
+                title:      "API - Ingredients"

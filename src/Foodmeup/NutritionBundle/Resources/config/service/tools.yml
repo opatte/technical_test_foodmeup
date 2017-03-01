@@ -1,0 +1,12 @@
+# Foodmeup/NutritionBundle/Resources/config/service/tools.yml
+
+services:
+    # Services - "Paginator"
+    foodmeup.nutrition.paginator:
+        class:                                  'Foodmeup\NutritionBundle\Pager\Paginator'
+        arguments:
+            - '@knp_paginator'
+
+    #Service - "Import CSV"
+    foodmeup.nutrition.import_csv:
+        class:                                  'Foodmeup\NutritionBundle\Tools\ImportCsvFileService'

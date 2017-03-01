@@ -1,0 +1,24 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Entity.Family.FamilyContent.yml
+
+Foodmeup\NutritionBundle\Entity\Family\FamilyContent:
+    exclusion_policy: 'ALL'
+
+    relations:
+        -
+            rel:                          'self'
+            href:
+                route:                    'foodmeup.nutrition.family.get_one_family_content'
+                absolute:                 true
+                parameters:
+                    familyUuid:          'expr(object.getFamily().getUuid())'
+                    contentUuid:         'expr(object.getUuid())'
+
+        -
+            rel:                          'family'
+            href:
+                route:                    'foodmeup.nutrition.family.get_one_family'
+                absolute:                 true
+                parameters:
+                    uuid:                 'expr(object.getFamily().getUuid())'
+
+    relation_providers:                   ['foodmeup.nutrition.family.content_url_generator:getRelations']

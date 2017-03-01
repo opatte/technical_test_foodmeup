@@ -1,0 +1,35 @@
+jenkins:
+    # Authorized formatters
+    formatters:
+        progress: true
+
+    # Authorized contexts
+    suites:
+        default:
+            contexts:
+                - behatch:browser
+                - behatch:json
+                - behatch:rest
+                - FeatureContext:
+                    baseUrl : 'http://foodmeup-technical-test.fake.com/app_test.php'
+                - Behat\MinkExtension\Context\MinkContext
+
+    # Authorized extensions
+    extensions:
+        Behat\Symfony2Extension: ~
+        Sanpi\Behatch\Extension: ~
+        Behat\MinkExtension:
+            base_url: 'http://foodmeup-technical-test.fake.com/app_test.php'
+            files_path: '%paths.base%/features'
+            sessions:
+                default:
+                    goutte: ~
+
+        AdamQuaile\Behat\CommandRunnerExtension:
+            beforeSuite:
+                - rm app/cache/test/test.db
+                - php app/console --env=test doctrine:database:create
+                - php app/console --env=test doctrine:schema:update --force
+                - cp app/cache/test/test.db app/cache/test/initial.db
+            beforeScenario:
+                - cp app/cache/test/initial.db app/cache/test/test.db

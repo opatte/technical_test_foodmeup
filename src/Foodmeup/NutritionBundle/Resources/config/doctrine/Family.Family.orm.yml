@@ -1,0 +1,78 @@
+# Foodmeup/NutritionBundle/Resources/config/doctrine/Family.Family.orm.yml
+
+Foodmeup\NutritionBundle\Entity\Family\Family:
+    type: 'entity'
+    table: 'family'
+    repositoryClass: 'Foodmeup\NutritionBundle\Repository\Family\FamilyRepository'
+
+    indexes:
+        family_uuid_idx:
+            columns: [ uuid ]
+        family_origgpcd_idx:
+            columns: [ origgpcd ]
+
+    uniqueConstraints:
+        unique_family_uuid:
+            columns: [ uuid ]
+        unique_family_origgpcd:
+            columns: [ origgpcd ]
+
+    fields:
+        id:
+            type: 'integer'
+            id: true
+            generator:
+                strategy: 'AUTO'
+
+        uuid:
+            type: 'string'
+            lenght: 50
+            nullable: false
+
+        status:
+            type: 'string'
+            lenght: 3
+            nullable: false
+
+        createdAt:
+            name: 'created_at'
+            type: 'datetime'
+            nullable: false
+
+        createdBy:
+            name: 'created_by'
+            type: 'string'
+            lenght: 50
+            nullable: false
+
+        updatedAt:
+            name: 'updated_at'
+            type: 'datetime'
+            nullable: true
+
+        updatedBy:
+            name: 'updated_by'
+            type: 'string'
+            lenght: 50
+            nullable: true
+
+        origgpcd:
+            name: 'origgpcd'
+            type: 'string'
+            lenght: 5
+            nullable: false
+
+    oneToMany:
+        contents:
+            targetEntity: 'Foodmeup\NutritionBundle\Entity\Family\FamilyContent'
+            mappedBy: 'family'
+            cascade: ["remove"]
+            JoinColumn:
+                nullable: false
+
+        ingredients:
+            targetEntity: 'Foodmeup\NutritionBundle\Entity\Ingredient\Ingredient'
+            mappedBy: 'family'
+            cascade: ["remove"]
+            JoinColumn:
+                nullable: false

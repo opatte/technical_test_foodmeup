@@ -14,8 +14,6 @@ fos_rest:
     allowed_methods_listener: true
 
     view:
-        exception_wrapper_handler: null
-
         view_response_listener: 'force'
 
         formats:

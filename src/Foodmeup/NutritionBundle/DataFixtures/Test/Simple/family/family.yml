@@ -1,0 +1,40 @@
+# Foodmeup/NutritionBundle/DataFixtures/Test/family/family.yml
+
+# UUID "673A663C-F43E-47DB-8863-B69802740DB8" is used as identifier ADMIN
+Foodmeup\NutritionBundle\Entity\Family\Family:
+    family_published_and_first_place:          
+        uuid:         "A8D9A973-F1AA-4078-953E-7A3354F0E750"
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origgpcd:     "01.1"
+
+    family_published_and_last_place:           
+        uuid:         "74F94DE1-BA38-4C1E-8DAF-6F4ACFCF7B95"
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-12 days', '-10 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origgpcd:     "02.1"
+
+    family_disabled:                           
+        uuid:         "5E39D2E0-FAE5-4182-921E-DB9831F0321B"
+        status:       "DIS"
+        createdAt:    <dateTimeBetween('-1 days', 'now')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origgpcd:     "03.1"
+
+    family_deleted:                            
+        uuid:         "0EBF06D3-FCC7-4645-888C-A9A0629C630A"
+        status:       "DEL"
+        createdAt:    <dateTimeBetween('-1 days', 'now')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origgpcd:     "03.2"
+        

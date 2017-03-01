@@ -31,11 +31,10 @@ chrisguitarguy_request_id:
     # Whether or not to add the twig extension (see below), defaults to true
     enable_twig: false
 
-
-### monolog formatter
+# Monolog Formatter
 services:
     request_id_formatter:
-        class: Monolog\Formatter\LineFormatter
+        class: 'Monolog\Formatter\LineFormatter'
         arguments:
             #add extra request id to default format log
             - "[%%datetime%%][%%extra.request_id%%] %%channel%%.%%level_name%%: %%message%% %%context%% %%extra%%\n"

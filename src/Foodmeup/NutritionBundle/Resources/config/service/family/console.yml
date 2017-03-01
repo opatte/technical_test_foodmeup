@@ -1,0 +1,16 @@
+# Foodmeup/NutritionBundle/Resources/config/service/family/console.yml
+
+services:
+    # Command as SERVICE 'Import FAMILY'
+    foodmeup.nutrition.console_command.import_family:
+        class: 'Foodmeup\NutritionBundle\Console\ImportFamiliesAndTheirContentsCommand'
+        arguments:
+            - '@foodmeup.nutrition.get_one_family_query_handler'
+            - '@foodmeup.nutrition.get_one_family_content_query_handler'
+            - '@foodmeup.nutrition.register_family_command_handler'
+            - '@foodmeup.nutrition.register_family_content_command_handler'
+            - '@foodmeup.nutrition.import_csv'
+            - '@debug.stopwatch'
+            - '@logger'
+        tags:
+            -  { name: 'console.command' }

@@ -1,0 +1,26 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Model.BaseModel.yml
+
+Foodmeup\NutritionBundle\Model\BaseModel:
+    exclusion_policy: 'ALL'
+
+    properties:
+        id:
+            expose: false
+        uuid:
+            expose: true
+            type: string
+        status:
+            expose: true
+            type: string
+        createdAt:
+            expose: true
+            type: DateTime<'Y-m-d H:i:s'>
+        createdBy:
+            expose: true
+            type: string
+        updatedAt:
+            expose: true
+            type: DateTime<'Y-m-d H:i:s'>
+        updatedBy:
+            expose: true
+            type: string

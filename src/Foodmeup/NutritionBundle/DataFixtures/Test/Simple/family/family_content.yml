@@ -1,0 +1,81 @@
+# Foodmeup/NutritionBundle/DataFixtures/Test/family/family_content.yml
+
+# UUID "673A663C-F43E-47DB-8863-B69802740DB8" is used as identifier ADMIN
+Foodmeup\NutritionBundle\Entity\Family\FamilyContent:
+
+    # FAMILY 1 (PUBLISHED AND FIRST PLACE) | No content in "pt_PT"
+    family_content_published_and_first_place_and_attached_first_family:
+        family:             "@family_published_and_first_place"
+        uuid:               "FA5771FD-DC23-4E8A-A654-84C8F957B5F7"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "FAMILY Content - Published / First place / Attached the first family"
+        slug:               "family-content-published-first-place-attached-the-first-family"
+        lang:               "en_US"
+
+    family_content_published_and_last_place_and_attached_first_family:
+        family:             "@family_published_and_first_place"
+        uuid:               "21A7743D-4DCF-41A4-892F-463367CCFE0B"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-12 days', '-10 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "FAMILY Content - Published / Last place / Attached the first family"
+        slug:               "family-content-published-last-place-attached-the-first-family"
+        lang:               "fr_FR"
+
+    family_content_disabled_and_attached_first_family:
+        family:             "@family_published_and_first_place"
+        uuid:               "86AA6110-F81F-493E-8750-2F68A6E37C41"
+        status:             "DIS"
+        createdAt:          <dateTimeBetween('-1 days', 'now')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "FAMILY Content - Disabled / Attached the first family"
+        slug:               "family-content-disabled-attached-the-first-family"
+        lang:               "es_ES"
+
+    family_deleted_and_attached_first_family:
+        family:             "@family_published_and_first_place"
+        uuid:               "17429A75-1725-4322-BF16-8D156CCE6637"
+        status:             "DEL"
+        createdAt:          <dateTimeBetween('-1 days', 'now')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "FAMILY Content - Deleted / Attached the first family"
+        slug:               "family-content-deleted-attached-the-first-family"
+        lang:               "de_DE"
+
+    # FAMILY 2 (PUBLISHED AND LAST PLACE) | No Contents
+
+    # FAMILY 3 (DISABLED)
+    family_content_published_and_attached_family_disabled:
+        family:             "@family_disabled"
+        uuid:               "41100CA0-73D3-4434-80D6-28FABFE7C516"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "FAMILY Content - Published / Attached the family disabled"
+        slug:               "family-content-published-attached-the-family-disabled"
+        lang:               "en_US"
+
+    # FAMILY 4 (DELETED)
+    family_content_published_and_attached_family_deleted:
+        family:             "@family_deleted"
+        uuid:               "66AE5742-84E1-4E3A-8D3B-918DE6BA2BAC"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "FAMILY Content - Published / Attached the family deleted"
+        slug:               "family-content-published-attached-the-family-deleted"
+        lang:               "en_US"

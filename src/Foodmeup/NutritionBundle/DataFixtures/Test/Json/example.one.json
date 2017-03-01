@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/draft-03/schema",
+    "id": "http://jsonschema.net",
+    "required": true,
+    "properties": {
+
+        /* "properties" to ADD */
+
+        "uuid": {
+            "type": "string",
+            "id": "http://jsonschema.net/uuid",
+            "required": true
+        },
+        "status": {
+            "type": "string",
+            "id": "http://jsonschema.net/status",
+            "required": true
+        },
+        "created_at": {
+            "type": "string",
+            "id": "http://jsonschema.net/created_at",
+            "required": true
+        },
+        "created_by": {
+            "type": "string",
+            "id": "http://jsonschema.net/created_by",
+            "required": true
+        },
+        "updated_at": {
+            "type": "string",
+            "id": "http://jsonschema.net/updated_at",
+            "required": true
+        },
+        "updated_by": {
+            "type": "string",
+            "id": "http://jsonschema.net/updated_by",
+            "required": true
+        },
+        "_links": {
+            "type": "object",
+            "id": "http://jsonschema.net/_links",
+            "required": true,
+            "properties": {
+                "self": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/_links/self",
+                    "required": true,
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "id": "http://jsonschema.net/_links/self/href",
+                            "required": true
+                        }
+                    }
+                }
+
+                /* "links" to ADD */
+
+            }
+        }
+    }
+}

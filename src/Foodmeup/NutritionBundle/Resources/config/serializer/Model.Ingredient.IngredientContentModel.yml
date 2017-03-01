@@ -1,0 +1,18 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Model.Ingredient.IngredientContentModel.yml
+
+Foodmeup\NutritionBundle\Model\Ingredient\IngredientContentModel:
+    exclusion_policy: 'ALL'
+
+    properties:
+        name:
+            expose: true
+            type: string
+        slug:
+            expose: true
+            type: string
+        lang:
+            expose: true
+            type: string
+
+        ingredient:
+            expose: false

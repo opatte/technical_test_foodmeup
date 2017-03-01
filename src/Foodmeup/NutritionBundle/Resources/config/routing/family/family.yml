@@ -1,0 +1,10 @@
+# Foodmeup/NutritionBundle/Resources/config/routing/family/family.yml
+
+# FAMILIES - API Routing
+foodmeup.nutrition.family.list_all_families:
+    path:     '/families'
+    defaults: { _controller: 'foodmeup.nutrition.family_query_controller:listAllFamiliesAction' }
+
+foodmeup.nutrition.family.get_one_family:
+    path:     '/families/{uuid}'
+    defaults: { _controller: 'foodmeup.nutrition.family_query_controller:getOneFamilyAction' }

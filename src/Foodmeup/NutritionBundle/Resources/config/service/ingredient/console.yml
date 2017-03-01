@@ -1,0 +1,18 @@
+# Foodmeup/NutritionBundle/Resources/config/service/ingredient/console.yml
+
+services:
+    # Command as SERVICE 'Import INGREDIENT'
+    foodmeup.nutrition.console_command.import_ingredient:
+        class: 'Foodmeup\NutritionBundle\Console\ImportIngredientsAndTheirContentsCommand'
+        arguments:
+            - '@foodmeup.nutrition.get_one_family_query_handler'
+            - '@foodmeup.nutrition.get_one_ingredient_query_handler'
+            - '@foodmeup.nutrition.get_one_ingredient_content_query_handler'
+            - '@foodmeup.nutrition.register_ingredient_command_handler'
+            - '@foodmeup.nutrition.register_ingredient_content_command_handler'
+            - '@foodmeup.nutrition.import_csv'
+            - '@debug.stopwatch'
+            - '@logger'
+        tags:
+            -  { name: 'console.command' }
+            

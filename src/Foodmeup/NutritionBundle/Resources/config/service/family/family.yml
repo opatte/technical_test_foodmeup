@@ -1,0 +1,48 @@
+# Foodmeup/NutritionBundle/Resources/config/service/family/family.yml
+
+services:
+    #Service "ControllerQuery" - Family (Get_one_family & List_all_families)
+    foodmeup.nutrition.family_query_controller:
+        class: 'Foodmeup\NutritionBundle\Controller\Family\FamilyQueryController'
+        arguments:
+            - '@foodmeup.nutrition.list_all_families_query_handler'
+            - '@foodmeup.nutrition.get_one_family_query_handler'
+            - '@fos_rest.view_handler'
+            - '@request_stack'
+
+    #Service "QueryHandler" - Family (Get_one_family)
+    foodmeup.nutrition.get_one_family_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Family\GetOneFamilyQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.family_repository'
+            - '@logger'
+
+    #Service "QueryHandler" - Family (list_all_families)
+    foodmeup.nutrition.list_all_families_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Family\ListAllFamiliesQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.paginator'
+            - '@logger'
+            - '@foodmeup.nutrition.family_repository'
+
+    #Service "CommandHandler" - Register "Family"
+    foodmeup.nutrition.register_family_command_handler:
+        class: 'Foodmeup\NutritionBundle\CommandHandler\Family\RegisterFamilyCommandHandler'
+        arguments:
+            - '@foodmeup.nutrition.family_repository'
+            - '@logger'
+
+    #Service "Repository" - Family
+    foodmeup.nutrition.family_repository:
+        class: 'Foodmeup\NutritionBundle\Repository\Family\FamilyRepository'
+        factory: ['@doctrine', 'getRepository']
+        arguments:
+            - 'Foodmeup\NutritionBundle\Entity\Family\Family'
+
+    #HATEOAS "UrlGenerator" - Family
+    foodmeup.nutrition.family.url_generator:
+        class: 'Foodmeup\NutritionBundle\Rest\Family\FamilyUrlGenerator'
+        arguments:
+            - '@request_stack'
+        tags:
+            - { name: 'hateoas.url_generator', alias: 'leaders.family_url_generator' }

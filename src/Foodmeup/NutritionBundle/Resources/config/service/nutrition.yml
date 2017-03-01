@@ -1,0 +1,17 @@
+# Foodmeup/NutritionBundle/Resources/config/service/connection.yml
+
+imports:
+    # INDEX
+    - { resource: 'index.yml' }
+    # TOOLS
+    - { resource: 'tools.yml' }
+
+    # Services - FAMILY
+    - { resource: 'family/family.yml' }
+    - { resource: 'family/family_content.yml' }
+    - { resource: 'family/console.yml' }
+
+    # Services - INGREDIENT
+    - { resource: 'ingredient/ingredient.yml' }
+    - { resource: 'ingredient/ingredient_content.yml' }
+    - { resource: 'ingredient/console.yml' }

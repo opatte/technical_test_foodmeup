@@ -1,1 +1,6 @@
 # app/config/routing/routing.yml
+
+# Foodmeup/NutritionBundle - API Routing
+foodmeup.nutrition.api:
+    resource: "@FoodmeupNutritionBundle/Resources/config/routing/routing_api.yml"
+    prefix:   /

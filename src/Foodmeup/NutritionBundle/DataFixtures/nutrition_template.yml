@@ -1,0 +1,49 @@
+# Foodmeup/NutritionBundle/DataFixtures/nutrition_template.yml
+
+# UUID "673A663C-F43E-47DB-8863-B69802740DB8" is used as identifier ADMIN
+Foodmeup\NutritionBundle\Entity\Family\Family:
+    family_template (template):
+        uuid:         <bothify('###?###?-?##?-##??-####-?########??#')>
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-70 days', '-60 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+#        origgpcd:     <numerify('##.#')>  // Do not use in this file
+
+Foodmeup\NutritionBundle\Entity\Family\FamilyContent:
+    family_content_template (template):
+        # family:        "@family_XXX"      // Do not use in this file
+        uuid:         <bothify('###?###?-?##?-##??-####-?########??#')>
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-70 days', '-60 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:         <sentence()>
+        slug:         <slug()>
+        lang:         <randomElement($array = array ("fr_FR", "en_US", "es_ES", "de_DE", "pt_PT"))>
+
+Foodmeup\NutritionBundle\Entity\Ingredient\Ingredient:
+    ingredient_template (template):
+        # family:        "@family_XXX"      // Do not use in this file
+        uuid:         <bothify('###?###?-?##?-##??-####-?########??#')>
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-70 days', '-60 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+#        origfdcd:     <numerify('##.#')>  // Do not use in this file
+
+Foodmeup\NutritionBundle\Entity\Ingredient\IngredientContent:
+    ingredient_content_template (template):
+        # ingredient:        "@ingredient_XXX"      // Do not use in this file
+        uuid:         <bothify('###?###?-?##?-##??-####-?########??#')>
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-70 days', '-60 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:        <sentence()>
+        slug:         <slug()>
+        lang:         <randomElement($array = array ("fr_FR", "en_US", "es_ES", "de_DE", "pt_PT"))>

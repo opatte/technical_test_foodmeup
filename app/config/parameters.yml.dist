@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # Log error
+    monolog_mail:               'mail@mail.com'
+
+    # Hostname (for DEV | PREPROD | PROD)
+    site_host_name:             'foodmeup-technical-test.fake.com'

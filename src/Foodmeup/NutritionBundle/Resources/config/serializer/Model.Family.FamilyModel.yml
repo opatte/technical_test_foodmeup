@@ -1,0 +1,14 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Model.Family.FamilyModel.yml
+
+Foodmeup\NutritionBundle\Model\Family\FamilyModel:
+    exclusion_policy: all
+
+    properties:
+        origgpcd:
+            expose: true
+            type: string
+
+        contents:
+            expose: false
+        ingredients:
+            expose: false

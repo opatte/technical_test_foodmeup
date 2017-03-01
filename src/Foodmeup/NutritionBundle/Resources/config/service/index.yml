@@ -1,0 +1,11 @@
+services:
+    #Service - INDEX - CONTROLLER
+    foodmeup.nutrition.index_controller:
+        class:      'Foodmeup\NutritionBundle\Controller\IndexControllerService'
+        arguments:
+            - '@foodmeup.nutrition.index_new_object'
+            - '@fos_rest.view_handler'
+
+    #Service - INDEX - OBJECT
+    foodmeup.nutrition.index_new_object:
+        class: 'Foodmeup\NutritionBundle\Model\Index'

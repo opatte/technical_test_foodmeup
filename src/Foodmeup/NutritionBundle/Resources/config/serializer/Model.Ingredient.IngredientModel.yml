@@ -1,0 +1,15 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Model.Ingredient.IngredientModel.yml
+
+Foodmeup\NutritionBundle\Model\Ingredient\IngredientModel:
+    exclusion_policy: all
+
+    properties:
+        origfdcd:
+            expose: true
+            type: integer
+
+        contents:
+            expose: false
+
+        family:
+            expose: false

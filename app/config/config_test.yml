@@ -1,3 +1,5 @@
+# app/config/config_test.yml
+
 imports:
     - { resource: config_dev.yml }
 
@@ -12,5 +14,12 @@ web_profiler:
     toolbar: false
     intercept_redirects: false
 
+doctrine:
+    dbal:
+        driver:   "pdo_sqlite"
+        charset:  UTF8
+        path:    '%kernel.cache_dir%/test.db'
+
 swiftmailer:
+    spool:      { type:memory }
     disable_delivery: true

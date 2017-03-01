@@ -1,0 +1,54 @@
+# Foodmeup/NutritionBundle/Resources/config/service/ingredient/ingredient_content.yml
+
+services:
+    #Service "ControllerQuery" - Ingredient Content (Get_one_ingredient_content & List_all_ingredient_contents)
+    foodmeup.nutrition.ingredient_content_query_controller:
+        class: 'Foodmeup\NutritionBundle\Controller\Ingredient\IngredientContentQueryController'
+        arguments:
+            - '@foodmeup.nutrition.list_all_ingredient_contents_query_handler'
+            - '@foodmeup.nutrition.get_one_ingredient_content_query_handler'
+            - '@fos_rest.view_handler'
+            - '@request_stack'
+
+    #Service "QueryHandler" - Ingredient Content (Get_one_ingredient_content)
+    foodmeup.nutrition.get_one_ingredient_content_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Ingredient\GetOneIngredientContentQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.ingredient_content_repository'
+            - '@logger'
+
+    #Service "QueryHandler" - Ingredient Content (list_all_ingredient_contents)
+    foodmeup.nutrition.list_all_ingredient_contents_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Ingredient\ListAllIngredientContentsQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.ingredient_content_repository'
+            - '@foodmeup.nutrition.paginator'
+            - '@logger'
+
+    #Service "CommandHandler" - Register "IngredientContent"
+    foodmeup.nutrition.register_ingredient_content_command_handler:
+        class: 'Foodmeup\NutritionBundle\CommandHandler\Ingredient\RegisterIngredientContentCommandHandler'
+        arguments:
+            - '@foodmeup.nutrition.ingredient_content_repository'
+            - '@foodmeup.nutrition.ingredient_content_slugger'
+            - '@logger'
+
+    #Service "Specific <SLUGGER>" - "IngredientContent"
+    foodmeup.nutrition.ingredient_content_slugger:
+        class: 'Foodmeup\NutritionBundle\Slugger\Slugger'
+        arguments:
+            - '@slugify'
+            - '@foodmeup.nutrition.ingredient_content_repository'
+
+    #Service "Repository" - Ingredient Content
+    foodmeup.nutrition.ingredient_content_repository:
+        class: 'Foodmeup\NutritionBundle\Repository\Ingredient\IngredientContentRepository'
+        factory: ['@doctrine', 'getRepository']
+        arguments:
+            - 'Foodmeup\NutritionBundle\Entity\Ingredient\IngredientContent'
+
+    #HATEOAS "UrlGenerator" - IngredientContent
+    foodmeup.nutrition.ingredient.content_url_generator:
+        class: 'Foodmeup\NutritionBundle\Rest\Ingredient\IngredientContentUrlGenerator'
+        tags:
+            - { name: 'hateoas.url_generator', alias: 'leaders.ingredient_content_url_generator' }

@@ -1,0 +1,43 @@
+# Foodmeup/NutritionBundle/DataFixtures/Test/ingredient/ingredient.yml
+
+# UUID "673A663C-F43E-47DB-8863-B69802740DB8" is used as identifier ADMIN
+Foodmeup\NutritionBundle\Entity\Ingredient\Ingredient:
+    ingredient_published_and_first_place:
+        family:       "@family_published_and_first_place"
+        uuid:         "A1E93186-9DE0-4FB1-99CB-DB1B1C2A8941"
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origfdcd:     9410
+
+    ingredient_published_and_last_place:
+        family:       "@family_published_and_first_place"
+        uuid:         "26B140F2-D1C9-4B42-B230-88141F6D878C"
+        status:       "PUB"
+        createdAt:    <dateTimeBetween('-12 days', '-10 days')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origfdcd:     4410
+
+    ingredient_disabled:
+        family:       "@family_published_and_first_place"
+        uuid:         "032888B2-05BD-45A4-8DB1-E48D41F3F105"
+        status:       "DIS"
+        createdAt:    <dateTimeBetween('-1 days', 'now')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origfdcd:     9220
+
+    ingredient_deleted:
+        family:       "@family_published_and_first_place"
+        uuid:         "68909DDC-E4B9-42D2-9090-18AD4E6A4B60"
+        status:       "DEL"
+        createdAt:    <dateTimeBetween('-1 days', 'now')>
+        createdBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:    <dateTimeBetween('-1 days', 'now')>
+        updatedBy:    "673A663C-F43E-47DB-8863-B69802740DB8"
+        origfdcd:     9896

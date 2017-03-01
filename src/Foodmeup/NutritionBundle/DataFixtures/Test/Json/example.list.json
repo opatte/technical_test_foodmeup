@@ -1,0 +1,158 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/draft-03/schema",
+    "id": "http://jsonschema.net",
+    "required": true,
+    "properties": {
+        "page": {
+            "type": "number",
+            "id": "http://jsonschema.net/page",
+            "required": true
+        },
+        "limit": {
+            "type": "number",
+            "id": "http://jsonschema.net/limit",
+            "required": true
+        },
+        "pages": {
+            "type": "number",
+            "id": "http://jsonschema.net/pages",
+            "required": true
+        },
+        "total": {
+            "type": "number",
+            "id": "http://jsonschema.net/total",
+            "required": true
+        },
+        "_links": {
+            "type": "object",
+            "id": "http://jsonschema.net/_links",
+            "required": true,
+            "properties": {
+                "self": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/_links/self",
+                    "required": true,
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "id": "http://jsonschema.net/_links/self/href",
+                            "required": true
+                        }
+                    }
+                },
+                "first": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/_links/first",
+                    "required": true,
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "id": "http://jsonschema.net/_links/first/href",
+                            "required": true
+                        }
+                    }
+                },
+                "last": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/_links/last",
+                    "required": true,
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "id": "http://jsonschema.net/_links/last/href",
+                            "required": true
+                        }
+                    }
+                },
+                "next": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/_links/next",
+                    "required": true,
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "id": "http://jsonschema.net/_links/next/href",
+                            "required": true
+                        }
+                    }
+                }
+            }
+        },
+        "_embedded": {
+            "type": "object",
+            "id": "http://jsonschema.net/_embedded",
+            "required": true,
+            "properties": {
+                "<example>": {
+                    "type": "array",
+                    "id": "http://jsonschema.net/_embedded/<example>",
+                    "required": true,
+                    "items": {
+                        "type": "object",
+                        "id": "http://jsonschema.net/_embedded/<example>/0",
+                        "required": true,
+                        "properties": {
+
+                            /* "properties" to ADD */
+
+                            "uuid": {
+                                "type": "string",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/uuid",
+                                "required": true
+                            },
+                            "status": {
+                                "type": "string",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/status",
+                                "required": true
+                            },
+                            "created_at": {
+                                "type": "string",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/created_at",
+                                "required": true
+                            },
+                            "created_by": {
+                                "type": "string",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/created_by",
+                                "required": true
+                            },
+                            "updated_at": {
+                                "type": "string",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/updated_at",
+                                "required": true
+                            },
+                            "updated_by": {
+                                "type": "string",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/updated_by",
+                                "required": true
+                            },
+
+                            "_links": {
+                                "type": "object",
+                                "id": "http://jsonschema.net/_embedded/<example>/0/_links",
+                                "required": true,
+                                "properties": {
+                                    "self": {
+                                        "type": "object",
+                                        "id": "http://jsonschema.net/_embedded/<example>/0/_links/self",
+                                        "required": true,
+                                        "properties": {
+                                            "href": {
+                                                "type": "string",
+                                                "id": "http://jsonschema.net/_embedded/<example>/0/_links/self/href",
+                                                "required": true
+                                            }
+                                        }
+                                    }
+
+                                    /* "links" to ADD */
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+# Foodmeup/NutritionBundle/DataFixtures/Test/ingredient/ingredient_content.yml
+
+# UUID "673A663C-F43E-47DB-8863-B69802740DB8" is used as identifier ADMIN
+Foodmeup\NutritionBundle\Entity\Ingredient\IngredientContent:
+
+    # INGREDIENT 1 (PUBLISHED AND FIRST PLACE) | No content in "pt_PT"
+    ingredient_content_published_and_first_place_and_attached_first_ingredient:
+        ingredient:         "@ingredient_published_and_first_place"
+        uuid:               "0CFC829B-A2B4-4DB4-85C2-E762B87F142A"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "INGREDIENT Content - Published / First place / Attached the first ingredient"
+        slug:               "ingredient-content-published-first-place-attached-the-first-ingredient"
+        lang:               "en_US"
+
+    ingredient_content_published_and_last_place_and_attached_first_ingredient:
+        ingredient:         "@ingredient_published_and_first_place"
+        uuid:               "F147F4DE-1B04-4672-9BDA-DED3F23A50C6"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-12 days', '-10 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "INGREDIENT Content - Published / Last place / Attached the first ingredient"
+        slug:               "ingredient-content-published-last-place-attached-the-first-ingredient"
+        lang:               "fr_FR"
+
+    ingredient_content_disabled_and_attached_first_ingredient:
+        ingredient:         "@ingredient_published_and_first_place"
+        uuid:               "0C08C5E2-080B-412E-B4CA-F6F338975E0A"
+        status:             "DIS"
+        createdAt:          <dateTimeBetween('-1 days', 'now')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "INGREDIENT Content - Disabled / Attached the first ingredient"
+        slug:               "ingredient-content-disabled-attached-the-first-ingredient"
+        lang:               "es_ES"
+
+    ingredient_deleted_and_attached_first_ingredient:
+        ingredient:         "@ingredient_published_and_first_place"
+        uuid:               "B3A1E7B0-D445-44EE-B82F-5EFA87C35246"
+        status:             "DEL"
+        createdAt:          <dateTimeBetween('-1 days', 'now')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "INGREDIENT Content - Deleted / Attached the first ingredient"
+        slug:               "ingredient-content-deleted-attached-the-first-ingredient"
+        lang:               "de_DE"
+
+    # INGREDIENT 2 (PUBLISHED AND LAST PLACE) | No Contents
+
+    # INGREDIENT 3 (DISABLED)
+    ingredient_content_published_and_attached_ingredient_disabled:
+        ingredient:         "@ingredient_disabled"
+        uuid:               "F8868B59-11DC-4974-B32E-4192118F0B9A"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "INGREDIENT Content - Published / Attached the ingredient disabled"
+        slug:               "ingredient-content-published-attached-the-ingredient-disabled"
+        lang:               "en_US"
+
+    # INGREDIENT 4 (DELETED)
+    ingredient_content_published_and_attached_ingredient_deleted:
+        ingredient:         "@ingredient_deleted"
+        uuid:               "C479CC7E-5639-44E2-B133-55CF86D20ECA"
+        status:             "PUB"
+        createdAt:          <dateTimeBetween('-4 days', '-2 days')>
+        createdBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        updatedAt:          <dateTimeBetween('-1 days', 'now')>
+        updatedBy:          "673A663C-F43E-47DB-8863-B69802740DB8"
+        name:               "INGREDIENT Content - Published / Attached the ingredient deleted"
+        slug:               "ingredient-content-published-attached-the-ingredient-deleted"
+        lang:               "en_US"

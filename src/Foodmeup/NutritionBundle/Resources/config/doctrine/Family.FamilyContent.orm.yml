@@ -1,0 +1,81 @@
+# Foodmeup/NutritionBundle/Resources/config/doctrine/Family.FamilyContent.orm.yml
+
+Foodmeup\NutritionBundle\Entity\Family\FamilyContent:
+    type: 'entity'
+    table: 'family_content'
+    repositoryClass: 'Foodmeup\NutritionBundle\Repository\Family\FamilyContentRepository'
+
+    indexes:
+        family_content_uuid_idx:
+            columns: [ uuid ]
+
+    uniqueConstraints:
+        unique_family_content_uuid:
+          columns: [ uuid ]
+        unique_family_content_slug:
+          columns: [ slug ]
+        unique_family_content_by_family_and_lang_and_name:
+          columns: [ id_family, lang, name ]
+
+    fields:
+        id:
+            type: 'integer'
+            id: true
+            generator:
+                strategy: 'AUTO'
+
+        uuid:
+            type: 'string'
+            lenght: 50
+            nullable: false
+
+        status:
+            type: 'string'
+            lenght: 3
+            nullable: false
+
+        createdAt:
+            name: 'created_at'
+            type: 'datetime'
+            nullable: false
+
+        createdBy:
+            name: 'created_by'
+            type: 'string'
+            lenght: 50
+            nullable: false
+
+        updatedAt:
+            name: 'updated_at'
+            type: 'datetime'
+            nullable: true
+
+        updatedBy:
+            name: 'updated_by'
+            type: 'string'
+            lenght: 50
+            nullable: true
+
+        name:
+            type: 'string'
+            lenght: 255
+            nullable: false
+
+        slug:
+            type: 'string'
+            lenght: 255
+            nullable: false
+
+        lang:
+            type: 'string'
+            lenght: 5
+            nullable: false
+
+    manyToOne:
+        family:
+            targetEntity: 'Foodmeup\NutritionBundle\Entity\Family\Family'
+            inversedBy: "contents"
+            joinColumn:
+                name: 'id_family'
+                referencedColumnName: 'id'
+                nullable: false

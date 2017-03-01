@@ -1,0 +1,26 @@
+# Foodmeup/NutritionBundle/Resources/config/routing/routing_api.yml
+
+# HOMEPAGE - API Routing
+foodmeup.nutrition.index:
+    path:     /
+    defaults: { _controller: 'foodmeup.nutrition.index_controller:indexAction' }
+
+# -------------
+
+# FAMILIES - API Routing
+foodmeup.nutrition.families:
+    resource: "@FoodmeupNutritionBundle/Resources/config/routing/family/family.yml"
+
+# FAMILY CONTENTS - API Routing
+foodmeup.nutrition.family_contents:
+    resource: "@FoodmeupNutritionBundle/Resources/config/routing/family/family_content.yml"
+
+# --
+
+# INGREDIENTS - API Routing
+foodmeup.nutrition.ingredients:
+    resource: "@FoodmeupNutritionBundle/Resources/config/routing/ingredient/ingredient.yml"
+
+# INGREDIENT CONTENTS - API Routing
+foodmeup.nutrition.ingredient_contents:
+    resource: "@FoodmeupNutritionBundle/Resources/config/routing/ingredient/ingredient_content.yml"

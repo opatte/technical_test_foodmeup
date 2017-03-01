@@ -1,0 +1,54 @@
+# Foodmeup/NutritionBundle/Resources/config/service/family/family_content.yml
+
+services:
+    #Service "ControllerQuery" - Family Content (Get_one_family_content & List_all_family_contents)
+    foodmeup.nutrition.family_content_query_controller:
+        class: 'Foodmeup\NutritionBundle\Controller\Family\FamilyContentQueryController'
+        arguments:
+            - '@foodmeup.nutrition.list_all_family_contents_query_handler'
+            - '@foodmeup.nutrition.get_one_family_content_query_handler'
+            - '@fos_rest.view_handler'
+            - '@request_stack'
+
+    #Service "QueryHandler" - Family Content (Get_one_family_content)
+    foodmeup.nutrition.get_one_family_content_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Family\GetOneFamilyContentQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.family_content_repository'
+            - '@logger'
+
+    #Service "QueryHandler" - Family Content (list_all_family_contents)
+    foodmeup.nutrition.list_all_family_contents_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Family\ListAllFamilyContentsQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.paginator'
+            - '@logger'
+            - '@foodmeup.nutrition.family_content_repository'
+
+    #Service "CommandHandler" - Register "FamilyContent"
+    foodmeup.nutrition.register_family_content_command_handler:
+        class: 'Foodmeup\NutritionBundle\CommandHandler\Family\RegisterFamilyContentCommandHandler'
+        arguments:
+            - '@foodmeup.nutrition.family_content_repository'
+            - '@foodmeup.nutrition.family_content_slugger'
+            - '@logger'
+
+    #Service "Specific <SLUGGER>" - "FamilyContent"
+    foodmeup.nutrition.family_content_slugger:
+        class: 'Foodmeup\NutritionBundle\Slugger\Slugger'
+        arguments:
+            - '@slugify'
+            - '@foodmeup.nutrition.family_content_repository'
+
+    #Service "Repository" - Family Content
+    foodmeup.nutrition.family_content_repository:
+        class: 'Foodmeup\NutritionBundle\Repository\Family\FamilyContentRepository'
+        factory: ['@doctrine', 'getRepository']
+        arguments:
+            - 'Foodmeup\NutritionBundle\Entity\Family\FamilyContent'
+
+    #HATEOAS "UrlGenerator" - FamilyContent
+    foodmeup.nutrition.family.content_url_generator:
+        class: 'Foodmeup\NutritionBundle\Rest\Family\FamilyContentUrlGenerator'
+        tags:
+            - { name: 'hateoas.url_generator', alias: 'leaders.family_content_url_generator' }

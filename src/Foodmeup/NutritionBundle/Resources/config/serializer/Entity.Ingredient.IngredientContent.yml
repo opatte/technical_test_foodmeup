@@ -1,0 +1,24 @@
+# Foodmeup/NutritionBundle/Resources/config/serializer/Entity.Ingredient.IngredientContent.yml
+
+Foodmeup\NutritionBundle\Entity\Ingredient\IngredientContent:
+    exclusion_policy: 'ALL'
+
+    relations:
+        -
+            rel:                          'self'
+            href:
+                route:                    'foodmeup.nutrition.ingredient.get_one_ingredient_content'
+                absolute:                 true
+                parameters:
+                    ingredientUuid:       'expr(object.getIngredient().getUuid())'
+                    contentUuid:          'expr(object.getUuid())'
+
+        -
+            rel:                          'ingredient'
+            href:
+                route:                    'foodmeup.nutrition.ingredient.get_one_ingredient'
+                absolute:                 true
+                parameters:
+                    uuid:                 'expr(object.getIngredient().getUuid())'
+
+    relation_providers:                   ['foodmeup.nutrition.ingredient.content_url_generator:getRelations']

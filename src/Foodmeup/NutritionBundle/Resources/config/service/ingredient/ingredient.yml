@@ -1,0 +1,48 @@
+# Foodmeup/NutritionBundle/Resources/config/service/ingredient/ingredient.yml
+
+services:
+    #Service "ControllerQuery" - Ingredient (Get_one_ingredient & List_all_ingredients)
+    foodmeup.nutrition.ingredient_query_controller:
+        class: 'Foodmeup\NutritionBundle\Controller\Ingredient\IngredientQueryController'
+        arguments:
+            - '@foodmeup.nutrition.list_all_ingredients_query_handler'
+            - '@foodmeup.nutrition.get_one_ingredient_query_handler'
+            - '@fos_rest.view_handler'
+            - '@request_stack'
+
+    #Service "QueryHandler" - Ingredient (Get_one_ingredient)
+    foodmeup.nutrition.get_one_ingredient_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Ingredient\GetOneIngredientQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.ingredient_repository'
+            - '@logger'
+
+    #Service "QueryHandler" - Ingredient (list_all_ingredients)
+    foodmeup.nutrition.list_all_ingredients_query_handler:
+        class: 'Foodmeup\NutritionBundle\QueryHandler\Ingredient\ListAllIngredientsQueryHandler'
+        arguments:
+            - '@foodmeup.nutrition.ingredient_repository'
+            - '@foodmeup.nutrition.paginator'
+            - '@logger'
+
+    #Service "CommandHandler" - Register "Ingredient"
+    foodmeup.nutrition.register_ingredient_command_handler:
+        class: 'Foodmeup\NutritionBundle\CommandHandler\Ingredient\RegisterIngredientCommandHandler'
+        arguments:
+            - '@foodmeup.nutrition.ingredient_repository'
+            - '@logger'
+
+    #Service "Repository" - Ingredient
+    foodmeup.nutrition.ingredient_repository:
+        class: 'Foodmeup\NutritionBundle\Repository\Ingredient\IngredientRepository'
+        factory: ['@doctrine', 'getRepository']
+        arguments:
+            - 'Foodmeup\NutritionBundle\Entity\Ingredient\Ingredient'
+
+    #HATEOAS "UrlGenerator" - Ingredient
+    foodmeup.nutrition.ingredient.url_generator:
+        class: 'Foodmeup\NutritionBundle\Rest\Ingredient\IngredientUrlGenerator'
+        arguments:
+            - '@request_stack'
+        tags:
+            - { name: 'hateoas.url_generator', alias: 'leaders.ingredient_url_generator' }

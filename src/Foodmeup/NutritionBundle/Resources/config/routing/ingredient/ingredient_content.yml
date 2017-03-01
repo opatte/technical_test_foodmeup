@@ -1,0 +1,10 @@
+# Foodmeup/NutritionBundle/Resources/config/routing/ingredient/ingredient_content.yml
+
+# INGREDIENT CONTENTS - API Routing
+foodmeup.nutrition.ingredient.list_all_ingredient_contents:
+    path:     '/ingredients/{ingredientUuid}/contents'
+    defaults: { _controller: 'foodmeup.nutrition.ingredient_content_query_controller:listAllIngredientContentsAction' }
+
+foodmeup.nutrition.ingredient.get_one_ingredient_content:
+    path:     '/ingredients/{ingredientUuid}/contents/{contentUuid}'
+    defaults: { _controller: 'foodmeup.nutrition.ingredient_content_query_controller:getOneIngredientContentAction' }

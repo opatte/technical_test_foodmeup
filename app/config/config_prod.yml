@@ -1,21 +1,31 @@
+# app/config/config_prod.yml
+
 imports:
     - { resource: config.yml }
-
-#doctrine:
-#    orm:
-#        metadata_cache_driver: apc
-#        result_cache_driver: apc
-#        query_cache_driver: apc
 
 monolog:
     handlers:
         main:
             type:         fingers_crossed
-            action_level: error
-            handler:      nested
-        nested:
+          # 500 errors are logged at the critical level
+            action_level: critical
+            handler:      grouped
+        grouped:
+            type:    group
+            members: [streamed, buffered]
+
+        streamed:
             type:  stream
-            path:  "%kernel.logs_dir%/%kernel.environment%.log"
-            level: debug
-        console:
-            type:  console
+            path:  '%kernel.logs_dir%/%kernel.environment%.log'
+            level: error
+            formatter: request_id_formatter
+
+        buffered:
+            type:    buffer
+            handler: swift
+        swift:
+            type:       swift_mailer
+            from_email: '%monolog_mail%'
+            to_email:   '%monolog_mail%'
+            subject:    "[API-FoodMeUp] [%site_host_name%] An Error Occurred!"
+            level:      error
