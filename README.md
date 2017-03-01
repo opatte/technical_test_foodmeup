@@ -66,3 +66,53 @@ Think of it as part of an application : the organisation has to be compatible wi
 You're right! With something open-ended like this you could easily spend a week polishing and getting it just right. We don't expect you to do this, and we'll do our best to make sure you're not disadvantaged by this.
 
 When we grade this exam we're not giving you a "score out of 100" for how many features you complete. We're trying to get some insight into your process, to see the way you work. So, by all means, spend more time if you want to. But you are also free to leave certain features out and give a written explanation of how you would approach it. The best approach is to spend your time on the features that you think is the best way to show us your strengths and experience.
+
+=================================================
+=================================================
+
+Installation
+----
+
+0. Install the project with COMPOSER 
+
+> composer install
+
+1. Create the "USER" & "DATABASE" with phpmyadmin
+
+2. Execute the DOCTRINE migrations with this command:
+
+> php bin/console doctrine:migrations:migrate
+
+3. Execute the first script "IMPORT - Ingredient families" (~2min)
+
+> php bin/console --env=prod foodmeup:nutrition:import-ingredient-families
+
+4. Execute the second script "IMPORT - Ingredients" (~9min)
+
+> php bin/console --env=prod foodmeup:nutrition:import-ingredients
+
+5. For access to the data, configure the standard VHOST "SYMFONY_3"
+
+All APi is working, and here is an example of resources created:
+
+
+========
+
+
+> /families | "Provides access to all families of ingredients"
+
+> * this link "contents" provide access to translation related for each families
+
+> * this link "ingredients" provide access to ingredients related for each families
+
+> * the filter "search" provide to search on the name of families
+
+========
+
+> /ingredients | "Provides access to all ingredients"
+
+> * this link "contents" provide access to translation related for each ingredients
+
+> * the filter "search" provide to search on the name of ingredients
+
+> * the filter "family_uuid" provide to filter on one family
